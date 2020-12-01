@@ -42,12 +42,12 @@ fun Canvas.drawRectPivotRotLine(scale : Float, w : Float, h : Float, paint : Pai
     drawRect(RectF(0f, -size / 10, size * sf1, size / 10), paint)
     drawArc(
         RectF(-size / 3, -size / 3, size / 3, size / 3),
-        360f - rot - rot * sf3,
+        rot * 2 - rot * sf3,
         rot * sf3,
         true,
         paint)
     save()
-    rotate(rot * sf3)
+    rotate(-rot * sf3)
     drawLine(0f, 0f, -size * sf2, 0f, paint)
     restore()
     restore()
