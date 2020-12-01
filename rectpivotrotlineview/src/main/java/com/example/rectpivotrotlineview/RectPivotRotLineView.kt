@@ -188,4 +188,27 @@ class RectPivotRotLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RectPivotRotLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val rprl : RectPivotRotLine = RectPivotRotLine(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            rprl.draw(canvas, paint)
+            animator.animate {
+                rprl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rprl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
