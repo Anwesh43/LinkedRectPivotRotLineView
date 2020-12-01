@@ -1,0 +1,3 @@
+include ':rectpivotrotlineview'
+include ':app'
+rootProject.name = "LinkedRectPivotRotLineView"
